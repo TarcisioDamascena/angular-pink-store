@@ -1,1 +1,45 @@
-<p>products-form works!</p>
+<div class="container-forms">
+  <h2>Cadastrar Produtos</h2>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Nome</label>
+      <input id="name" formControlName="name" />
+      @if (productForm.controls['name'].invalid &&
+      productForm.controls['name'].touched) {
+      <div>Nome é obrigatório e deve ter no máximo 100 caracteres.</div>
+      }
+    </div>
+
+    <div>
+      <label for="description">Descrição</label>
+      <input id="description" formControlName="description" />
+      @if (productForm.controls['description'].invalid &&
+      productForm.controls['description'].touched) {
+      <div>Descrição é obrigatória e deve ter no máximo 255 caracteres.</div>
+      }
+    </div>
+
+    <div>
+      <label for="price">Preço</label>
+      <input id="price" formControlName="price" type="number" />
+      @if (productForm.controls['price'].invalid &&
+      productForm.controls['price'].touched) {
+      <div>Preço é obrigatório e deve ser um valor positivo.</div>
+      }
+    </div>
+
+    <div>
+      <label for="imageUrl">URL da Imagem</label>
+      <input id="imageUrl" formControlName="imageUrl" />
+      @if (productForm.controls['imageUrl'].invalid &&
+      productForm.controls['imageUrl'].touched) {
+      <div>
+        A URL da imagem deve ser válida (exemplo:
+        https://example.com/image.jpg).
+      </div>
+      }
+    </div>
+
+    <button type="submit" [disabled]="productForm.invalid">Cadastrar</button>
+  </form>
+</div>

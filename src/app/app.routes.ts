@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './components/about/about.component';
+import { ProductsFormComponent } from './components/products-form/products-form.component';
 
 export const routes: Routes = [
   {
@@ -8,4 +8,8 @@ export const routes: Routes = [
     component: HomeComponent,
     pathMatch: 'full',
   },
+  {
+    path:'register',
+    component: ProductsFormComponent
+  }
 ];
