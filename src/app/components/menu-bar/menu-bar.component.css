@@ -1,5 +1,5 @@
 .container-menu-bar {
-  background-color: pink;
+  background-color: #f5dadf;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -38,8 +38,8 @@
 }
 .menu > li > a {
   text-decoration: none;
-  color: white;
+  color: #83193d;
   font-size: 1.2rem;
+  text-shadow: 0px .8px 0px #3d0417;
 
-  text-shadow: 1px 1px 0px gray;
 }
