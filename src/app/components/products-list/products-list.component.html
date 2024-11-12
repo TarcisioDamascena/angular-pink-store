@@ -1,12 +1,12 @@
-<div class="container-product">
+<div *ngFor="let product of products" class="container-product">
   <div class="product-img">
-    <img
-      src="https://marykay.vtexassets.com/arquivos/ids/156670-500-auto?v=638659795489600000&width=500&height=auto&aspect=true"
-      alt="Imagem do produto">
+    <img [src]="product.imageUrl" [alt]="product.name">
   </div>
   <div class="product-details">
-    <span class="product-name">Nome do produto</span>
-    <span class="product-availability">disponível</span>
-    <span class="product-price">R$ 250,99</span>
+    <span class="product-name">{{ product.name }}</span>
+    <span class="product-availability">
+      {{ product.available ? 'Disponível' : 'Indisponível' }}
+    </span>
+    <span class="product-price">R$ {{ product.price | number: '1.2-2' }}</span>
   </div>
 </div>
