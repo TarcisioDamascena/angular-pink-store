@@ -1,0 +1,39 @@
+.container-table {
+  background-color: var(--bg-color);
+  width: 100%;
+  padding: 20px;
+}
+
+.manager-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid var(--secondary-color);
+  padding: 8px;
+  text-align: left;
+}
+
+.manager-table th {
+  background-color: var(--bg-color);
+  font-weight: bold;
+}
+
+button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: ease 0.3s;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+img {
+  width: 50px;
+}

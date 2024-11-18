@@ -1,5 +1,5 @@
 <div class="container-product-list">
-  @for (product of products; track $index) {
+  @for (product of products.slice(0, 3); track $index) {
   <div class="container-product">
     <div class="product-img">
       <img [src]="product.imageUrl" [alt]="product.name" />

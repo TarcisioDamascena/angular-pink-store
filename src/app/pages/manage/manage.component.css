@@ -1,8 +1,5 @@
 .container-manager {
   background-color: var(--bg-color);
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   padding: 20px;
 }
