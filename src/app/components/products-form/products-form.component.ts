@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Product } from '../../models/product';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-products-form',
@@ -17,21 +18,33 @@ import { Product } from '../../models/product';
 export class ProductsFormComponent implements OnInit {
   productForm: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private productService: ProductService
+  ) {}
 
   ngOnInit(): void {
     this.productForm = this.fb.group({
       name: ['', [Validators.required, Validators.maxLength(100)]],
-      description: ['', [Validators.required, Validators.maxLength(255)]],
       price: ['', [Validators.required, Validators.min(0)]],
       imageUrl: ['', [Validators.required]],
+      available: [true],
     });
   }
 
   onSubmit(): void {
     if (this.productForm.valid) {
       const product: Product = this.productForm.value;
-      console.log('Produto cadastrado: ', product);
+
+      this.productService.createProduct(product).subscribe({
+        next: (createProduct) => {
+          console.log('Produto cadastrado: ', createProduct);
+          this.productForm.reset();
+        },
+        error: (err) => {
+          console.error('Erro ao cadastrar o produto; ', err);
+        },
+      });
     } else {
       console.log('Formulario invalido.');
     }

@@ -11,15 +11,6 @@
     </div>
 
     <div>
-      <label for="description">Descrição</label>
-      <input id="description" formControlName="description" />
-      @if (productForm.controls['description'].invalid &&
-      productForm.controls['description'].touched) {
-      <div>Descrição é obrigatória e deve ter no máximo 255 caracteres.</div>
-      }
-    </div>
-
-    <div>
       <label for="price">Preço</label>
       <input id="price" formControlName="price" type="number" />
       @if (productForm.controls['price'].invalid &&
